@@ -23,7 +23,6 @@ function tab(tab) {
             tabName.classList.remove(...tabActive);
             tabName.classList.add(...tabInactive);
         }
-        //updateStat();
     }
     const pages = [allcontainer, interviewcontainer, rejectcontainer];
     for (let page of pages) {
@@ -38,15 +37,13 @@ function tab(tab) {
     }
     updateStat();
 }
-tab(currentTab);//to make the all-tab active firstly after loading
-
-///button handling part finish
+tab(currentTab);
 
 let jobContainer = selectorClass("job-card-container");
 
 document.addEventListener('click', function (event) {
     let card = event.target.closest(".job-card");
-    //console.log(card);
+    
     let badge = card.querySelector(".badge");
     if (event.target.classList.contains("interview-btn")) {
         badge.innerText = "INTERVIEW";
@@ -57,7 +54,7 @@ document.addEventListener('click', function (event) {
         interviewcontainer.appendChild(card);
        
     } else if (event.target.classList.contains("reject-btn")) {
-        //console.log('clicked reject');
+        
         badge.innerText = "REJECT";
         badge.classList.add("btn-error", "btn-outline");
         card.classList.add("left-border-red");
@@ -74,7 +71,7 @@ document.addEventListener('click', function (event) {
 })
 
 
-//stats section
+
 
 function updateStat() {
     
@@ -88,7 +85,6 @@ function updateStat() {
     interviewCount.innerText = Stats.interview;
     rejectCount.innerText = Stats.reject;
     toShowOutofCount.innerText = Stats[currentTab];
-    //console.log(noJob.innerText);
     if(Stats[currentTab]<1){
         noJob.classList.remove('hidden');
     }else{
